@@ -124,9 +124,9 @@ function renderTasks() {
         let toggleLabel = task.isCompleted ? "Undo" : "Done";
         
 
-        // build HTML for a task and add it to the string
+        // build HTML for a task card and add it to the string
         html = html + 
-        '<div class = "task" id="number-' + task.id + '">' + 
+        '<div class = "task" id="card-' + task.id + '">' + 
             '<div class="task-name" id="name-' + task.id + '">' + task.name + '</div>' +
             '<div class="task-details">' + 
                 'Priority: ' + task.priority + ' &nbsp; |&nbsp; ' +
@@ -136,7 +136,7 @@ function renderTasks() {
             ' ' + 
             '<button type="button" onclick="deleteTask(' + task.id + ')">Delete</button>' +
         '</div>';
-        // complete and delete buttons added to the task box for convenience and aesthetic purposes
+        // complete and delete buttons added to the task card for convenience and aesthetic purposes
     }
 
     // push new HTML string
@@ -147,13 +147,13 @@ function renderTasks() {
 
         var t = tasks[j];
 
-        // get the name of the task
+        // get the name of the task element from the DOM
         const nameTask = document.getElementById("name-" + t.id);
 
-        // get the task number
-        const taskNumber = document.getElementById("number-" + t.id);
+        // get the task card element from the DOM
+        const taskCard = document.getElementById("card-" + t.id);
 
-        // strike through completed tasks
+        // strike through completed tasks (just the name)
         if (t.isCompleted === true) {
             nameTask.style.textDecoration = "line-through";
             nameTask.style.color = "gray";
@@ -162,20 +162,20 @@ function renderTasks() {
             nameTask.style.color = "black";
         }
 
-        // changing important tasks to red (only if NOT already completed)
+        // changing important task cards to red (only if NOT already completed)
         if (t.isImportant === true && t.isCompleted === false) {
-            taskNumber.style.border = "2px solid red";
-            taskNumber.style.backgroundColor = "#ffe0e0";
+            taskCard.style.border = "2px solid red";
+            taskCard.style.backgroundColor = "#ffe0e0";
         } else {
-            taskNumber.style.border = "1px solid #1b5252";
-            taskNumber.style.backgroundColor = "#f1f1f1";
+            taskCard.style.border = "1px solid #1b5252";
+            taskCard.style.backgroundColor = "#f1f1f1";
         }
 
-        // fade out completed tasks
+        // fade out completed tasks (for aesthetics only)
         if (t.isCompleted === true) {
-            taskNumber.style.opacity = "0.6";
+            taskCard.style.opacity = "0.6";
         } else {
-            taskNumber.style.opacity = "1";
+            taskCard.style.opacity = "1";
         }
     }
 }
