@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>WEB115 Final Project: Task Manager Webapp</title>
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header>
+            <div class="title-block">
+                <h1>Task Manager</h1>
+            </div>
+        </header>
+
+    <div class="wrapper">
+        <!-- Add Tasks Form -->
+        <div class="task-form">
+            <h2>New Tasks</h2>
+
+            <!-- Task Input -->
+            <div class="task-input">
+                <input type="text" id="taskName" placeholder="Task Name" />
+
+                <!-- Error message for validating the task field is not empty -->
+                 <p id="errorMessage">Please enter a task.</p>
+                
+                <!-- Priority Drop-down -->
+                <div class="priority-menu">
+                    <select id="taskPriority" label="Priority">
+                        <option value="High">High Priority</option>
+                        <option value="Medium" selected>Medium Priority</option>
+                        <option value="Low">Low Priority</option>
+                    </select>
+                </div>
+
+                <!-- Important & Completed Checkboxes -->
+                <div class="checkboxes">
+                    <label>
+                        <input type="checkbox" id="taskImportant" /> Mark as Important
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button" onclick="addTask()">Add Task</button> <!-- execute function addTask when button is clicked -->
+        </div>
+
+        <!-- Removed due to time and scope constraints
+        Task Filter
+        <div class="filter-wrapper">
+            <p>Filter By:</p>
+            <select id="filterMenu">
+                <option value="all">All Tasks</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+                <option value="High">High Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="Low">Low Priority</option>
+            </select>
+        </div>
+        -->
+
+        <!-- Task List -->
+        <div class="task-list">
+            <h3>Tasks</h3>
+        </div>
+
+        <!-- Task Manager -->
+        <div id="taskmanager"></div>
+    </div>
+
+    <!-- JS call -->
+    <script src="script.js"></script>
+    
+    </body>
+</html>
